@@ -5,15 +5,17 @@ import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-public class WebOpenFunc {
+public class WebServerConfig {
 
     private String mainFile;
     private int webPort;
 
-    public WebOpenFunc(String mainFile, int webPort) {
+    public WebServerConfig(String mainFile, int webPort) {
         this.mainFile = mainFile;
         this.webPort = webPort;
     }
+
+
 
     public void startServer() {
         try {
@@ -24,6 +26,14 @@ public class WebOpenFunc {
             server.start();
 
             System.out.println("Servidor iniciado na porta " + webPort);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openBrowser() {
+        try {
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:" + webPort);
         } catch (IOException e) {
             e.printStackTrace();
         }
