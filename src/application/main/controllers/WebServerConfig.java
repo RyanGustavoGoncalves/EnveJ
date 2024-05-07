@@ -49,10 +49,8 @@ public class WebServerConfig {
 
         if (!file.exists()) {
             try {
-                // Cria um novo arquivo se ele não existir
                 file.createNewFile();
 
-                // Escreve o conteúdo no arquivo
                 FileWriter writer = new FileWriter(file);
                 writer.write("<!DOCTYPE html>\n");
                 writer.write("<html lang=\"en\">\n");
@@ -60,13 +58,66 @@ public class WebServerConfig {
                 writer.write("    <meta charset=\"UTF-8\">\n");
                 writer.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
                 writer.write("    <title>EnveJ</title>\n");
+                writer.write("    <style>\n");
+                writer.write("        body {\n");
+                writer.write("            font-family: Arial, sans-serif;\n");
+                writer.write("            margin: 0;\n");
+                writer.write("            padding: 0;\n");
+                writer.write("            box-sizing: border-box;\n");
+                writer.write("            background-color: #222;\n");
+                writer.write("            color: #fff;\n");
+                writer.write("        }\n");
+                writer.write("        header {\n");
+                writer.write("            background-color: #333;\n");
+                writer.write("            color: #fff;\n");
+                writer.write("            padding: 10px 0;\n");
+                writer.write("            text-align: center;\n");
+                writer.write("        }\n");
+                writer.write("        .container {\n");
+                writer.write("            max-width: 800px;\n");
+                writer.write("            margin: 20px auto;\n");
+                writer.write("            padding: 0 20px;\n");
+                writer.write("        }\n");
+                writer.write("        .card {\n");
+                writer.write("            background-color: #333;\n");
+                writer.write("            padding: 20px;\n");
+                writer.write("            margin-bottom: 20px;\n");
+                writer.write("            border-radius: 5px;\n");
+                writer.write("        }\n");
+                writer.write("        .card h3 {\n");
+                writer.write("            color: #fff;\n");
+                writer.write("            font-size: 24px;\n");
+                writer.write("            margin-bottom: 10px;\n");
+                writer.write("        }\n");
+                writer.write("        .card p {\n");
+                writer.write("            color: #ccc;\n");
+                writer.write("            font-size: 16px;\n");
+                writer.write("        }\n");
+                writer.write("    </style>\n");
                 writer.write("</head>\n");
                 writer.write("<body>\n");
-                writer.write("<h2>Isso é um teste</h2>\n");
+                writer.write("    <header>\n");
+                writer.write("        <h1>EnveJ</h1>\n");
+                writer.write("    </header>\n");
+                writer.write("    <div class=\"container\">\n");
+                writer.write("        <h2>Bem-vindo ao EnveJ!</h2>\n");
+                writer.write("        <p>Este é um template básico para começar a construir sua aplicação web em Java.</p>\n");
+                writer.write("        <div class=\"card\">\n");
+                writer.write("            <h3>Tecnologia 1</h3>\n");
+                writer.write("            <p>Descrição da Tecnologia 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec mi quis sapien ultricies porta.</p>\n");
+                writer.write("        </div>\n");
+                writer.write("        <div class=\"card\">\n");
+                writer.write("            <h3>Tecnologia 2</h3>\n");
+                writer.write("            <p>Descrição da Tecnologia 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec mi quis sapien ultricies porta.</p>\n");
+                writer.write("        </div>\n");
+                writer.write("        <div class=\"card\">\n");
+                writer.write("            <h3>Tecnologia 3</h3>\n");
+                writer.write("            <p>Descrição da Tecnologia 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec mi quis sapien ultricies porta.</p>\n");
+                writer.write("        </div>\n");
+                writer.write("    </div>\n");
                 writer.write("</body>\n");
                 writer.write("</html>\n");
 
-                // Fecha o FileWriter
                 writer.close();
 
                 System.out.println("Arquivo criado: " + mainFile);
