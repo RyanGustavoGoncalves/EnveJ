@@ -8,6 +8,7 @@ public class Main {
         WebServerConfig server = new WebServerConfig("src/application/resource/index.html", 8080);
 
         server.startServer();
+        server.verifyFile();
         server.openBrowser();
 
     }
