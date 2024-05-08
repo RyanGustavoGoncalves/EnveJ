@@ -6,47 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" type="image/x-icon">
     <title>EnveJ</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #222;
-            color: #fff;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .card {
-            background-color: #333;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        .card h3 {
-            color: #fff;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #ccc;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -61,6 +21,7 @@
             <p>Descrição da Tecnologia 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec mi quis
                 sapien ultricies porta.</p>
             <input type="text" env-id="field" placeholder="Digite algo">
+            <button type="button" env-id="btn">Teste</button>
         </div>
         <div class="card">
             <h3>Tecnologia 2</h3>
@@ -73,7 +34,7 @@
                 sapien ultricies porta.</p>
         </div>
     </div>
-    <script src="./assets/scripts/main.js"></script>
+    <script type="module" src="assets/scripts/main.js"></script>
 </body>
 
 </html>
