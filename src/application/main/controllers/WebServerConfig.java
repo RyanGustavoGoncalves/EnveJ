@@ -34,7 +34,8 @@ public class WebServerConfig {
 
     public void openBrowser() {
         try {
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://localhost:" + webPort);
+            Runtime.getRuntime()
+                    .exec("rundll32 url.dll,FileProtocolHandler http://localhost:" + webPort + "/index.html");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,7 +43,7 @@ public class WebServerConfig {
 
     public void verifyFile() {
         if (mainFile == null || mainFile.isEmpty()) {
-            return; // Não há arquivo especificado
+            return;
         }
 
         File file = new File(mainFile);

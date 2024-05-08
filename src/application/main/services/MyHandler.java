@@ -28,7 +28,12 @@ public class MyHandler implements HttpHandler {
         // Verifica se o arquivo existe
         if (file.exists() && !file.isDirectory()) {
             // Define o tipo de conteúdo da resposta
-            String contentType = Files.probeContentType(Paths.get(file.getPath()));
+            String contentType;
+            if (requestedFile.endsWith(".js")) {
+                contentType = "text/javascript";
+            } else {
+                contentType = Files.probeContentType(Paths.get(file.getPath()));
+            }
             exchange.getResponseHeaders().set("Content-Type", contentType);
 
             // Define o código de status da resposta como 200 (OK)
