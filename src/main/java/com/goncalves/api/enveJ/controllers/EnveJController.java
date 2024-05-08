@@ -2,11 +2,9 @@ package com.goncalves.api.enveJ.controllers;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-@RestController
-@RequestMapping("/enveJ")
+@Controller
 public class EnveJController {
 
     @MessageMapping("/socket")
