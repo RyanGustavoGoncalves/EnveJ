@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class MyHandler implements HttpHandler {
 
@@ -17,12 +19,22 @@ public class MyHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        File file = new File(mainFile);
+        // Obtém o caminho do arquivo solicitado
+        String requestedFile = exchange.getRequestURI().getPath();
+
+        // Obtém o arquivo correspondente ao caminho solicitado
+        File file = new File(mainFile + requestedFile);
 
         // Verifica se o arquivo existe
-        if (file.exists()) {
-            // Define o tipo de conteúdo da resposta como HTML
-            exchange.getResponseHeaders().set("Content-Type", "text/html");
+        if (file.exists() && !file.isDirectory()) {
+            // Define o tipo de conteúdo da resposta
+            String contentType;
+            if (requestedFile.endsWith(".js")) {
+                contentType = "text/javascript";
+            } else {
+                contentType = Files.probeContentType(Paths.get(file.getPath()));
+            }
+            exchange.getResponseHeaders().set("Content-Type", contentType);
 
             // Define o código de status da resposta como 200 (OK)
             exchange.sendResponseHeaders(200, file.length());
